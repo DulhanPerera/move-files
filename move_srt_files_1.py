@@ -1,9 +1,11 @@
 import os
 import shutil
 
-# Define source and destination directories
-source_folder = r'E:\Dulhan Perera - SE & DS & CS\Courses\Code With Mosh\Python Programming for Developers - Code With Mosh\8- Python Package Index'
-destination_folder = r'E:\Dulhan Perera - SE & DS & CS\Courses\Code With Mosh\Python Programming for Developers - Code With Mosh\7- Python Standard Library\Subs'
+# Define the source directory
+source_folder = r'E:\Dulhan Perera - SE & DS & CS\Courses\Code With Mosh\The Ultimate Git Mastery Course - Code With Mosh\4- Branching (76m)'
+
+# Automatically create the destination folder inside the source folder
+destination_folder = os.path.join(source_folder, 'Subs')
 
 # Ensure destination folder exists
 if not os.path.exists(destination_folder):
@@ -14,13 +16,13 @@ files = os.listdir(source_folder)
 
 # Iterate over all files and move .srt files
 for file_name in files:
-    if file_name.endswith('.vtt'):
+    if file_name.endswith('.srt'):
         # Construct full file paths
         source_file = os.path.join(source_folder, file_name)
         destination_file = os.path.join(destination_folder, file_name)
 
         try:
-            # Move file to the destination
+            # Move the file to the destination
             shutil.move(source_file, destination_file)
             print(f'Moved: {file_name}')
         except Exception as e:
